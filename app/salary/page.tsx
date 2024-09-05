@@ -8,7 +8,7 @@ export default function NetSalaryCalculator() {
   const [includeRetirement, setIncludeRetirement] = useState<"별도" | "포함">(
     "별도"
   );
-  const [annualSalary, setAnnualSalary] = useState("");
+  const [salary, setSalary] = useState(0);
   const [dependents, setDependents] = useState("");
   const [childrenUnder20, setChildrenUnder20] = useState("");
   const [nonTaxableAmount, setNonTaxableAmount] = useState("");
@@ -26,18 +26,14 @@ export default function NetSalaryCalculator() {
   } | null>(null);
 
   const handleCalculate = () => {
-    if (annualSalary) {
+    if (salary) {
       const netSalary = calculateNetSalary({
         salaryType,
         includeRetirement,
-        annualSalary: parseFloat(annualSalary),
-        dependents: dependents ? parseInt(dependents) : undefined,
-        childrenUnder20: childrenUnder20
-          ? parseInt(childrenUnder20)
-          : undefined,
-        nonTaxableAmount: nonTaxableAmount
-          ? parseFloat(nonTaxableAmount)
-          : undefined,
+        salary: salary,
+        dependents: dependents ? parseInt(dependents) : 0,
+        childrenUnder20: childrenUnder20 ? parseInt(childrenUnder20) : 0,
+        nonTaxableAmount: nonTaxableAmount ? parseFloat(nonTaxableAmount) : 0,
       });
       setResult(netSalary);
     }
@@ -72,13 +68,18 @@ export default function NetSalaryCalculator() {
           </select>
         </div>
         <div>
-          <label className="block text-gray-700">연봉 (원)</label>
+          <div className="flex justify-between">
+            <label className="block text-gray-700">{salaryType} (원)</label>
+            <span className="text-right text-xs text-gray-500">
+              {salary.toLocaleString() || 0}원
+            </span>
+          </div>
           <input
             type="number"
-            value={annualSalary}
-            onChange={(e) => setAnnualSalary(e.target.value)}
+            value={salary}
+            onChange={(e) => setSalary(parseInt(e.target.value))}
             className="mt-1 p-2 border rounded w-full"
-            placeholder="연봉을 원 단위로 입력해주세요"
+            placeholder={`${salaryType}을 원 단위로 입력해주세요`}
           />
         </div>
         <div>

@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "calculify": "^1.0.4",
+    "calculify": "^1.0.6",
     "next": "14.2.7",
     "react": "^18",
     "react-dom": "^18"

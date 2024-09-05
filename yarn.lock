@@ -523,10 +523,10 @@ busboy@1.6.0:
   dependencies:
     streamsearch "^1.1.0"
 
-calculify@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/calculify/-/calculify-1.0.4.tgz#2b7629ff7353df76e827a6e4f3e94e09a08cdb8a"
-  integrity sha512-T5eG36m9xVlgJcfyBS/L8JyAoyvXpo4AEkcr1ekezqEOrRFlH6GFoENn2PAoxR4mTJr3EoRGcDzyGgbKAm4IWw==
+calculify@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/calculify/-/calculify-1.0.6.tgz#8537ed5f609fd1b192c1d7b7a736e608c421f55c"
+  integrity sha512-rG4AQYm6Zgei4th8JnUOFoVgXmTKz+ysC+rYio9x31tuv6g1O8FE4XWf0nEIv7Iv8Q3TRiWaWI8+0YlD/Z2irQ==
   dependencies:
     korean-lunar-calendar "^0.3.6"
 
